@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Mp3zingWebserviceApplicationTests {
+public class Mp3ZingApplicationTests {
 
     @Test
     public void contextLoads() {
