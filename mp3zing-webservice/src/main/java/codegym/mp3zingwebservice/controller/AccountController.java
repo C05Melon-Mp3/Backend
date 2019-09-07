@@ -49,7 +49,8 @@ public class AccountController {
         return new ResponseEntity<>("{\"text\":\"NotFound\"}", HttpStatus.OK);
     }
     @PutMapping("/accounts/update-user/{id}")
-    public ResponseEntity<AccountDTO> updateAccount(@PathVariable(value = "id") Integer id ,@RequestBody AccountDTO accountDTO){
+    public ResponseEntity<AccountDTO> updateAccount(@PathVariable(value = "id") Integer id ,
+                                                    @RequestBody AccountDTO accountDTO){
         accountService.updateUser(accountDTO);
         return ResponseEntity.ok(accountDTO);
     }
