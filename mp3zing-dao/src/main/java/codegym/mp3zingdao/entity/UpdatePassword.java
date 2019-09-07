@@ -1,8 +1,8 @@
 package codegym.mp3zingdao.entity;
 
 public class UpdatePassword {
-    public String currentPassword;
-    public String newPassword;
+    private String currentPassword;
+    private String newPassword;
 
     public String getNewPassword() {
         return newPassword;
@@ -20,3 +20,4 @@ public class UpdatePassword {
         this.currentPassword = currentPassword;
     }
 }
+

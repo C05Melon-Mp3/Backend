@@ -19,12 +19,13 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*",allowedHeaders = "*")
 @RequestMapping("")
+
 public class AccountController {
     @Autowired
     private AccountService accountService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> createAccounts(@Valid @RequestBody AccountDTO accountDTO, BindingResult bindingResult) {
+    public ResponseEntity<?> createAccount(@Valid @RequestBody AccountDTO accountDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<List>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
         }

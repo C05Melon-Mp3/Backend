@@ -4,12 +4,12 @@ import codegym.mp3zingdao.dto.AccountDTO;
 import codegym.mp3zingservice.service.AccountService;
 import codegym.mp3zingdao.entity.Account;
 import codegym.mp3zingdao.repository.AccountRepository;
-import codegym.mp3zingservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 

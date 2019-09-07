@@ -14,6 +14,7 @@ public interface AccountService {
     AccountDTO updatePassword(AccountDTO accountDTO);
 
     AccountDTO findById(Integer id);
+
     void updateUser(AccountDTO accountDTO);
 }
 
