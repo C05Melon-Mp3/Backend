@@ -43,7 +43,7 @@ public class ArtistController {
         artistService.save(artistDTO);
         return ResponseEntity.ok(artistDTO);
     }
-    @DeleteMapping("/artists/{id}")
+    @DeleteMapping("/artists/delete-artist/{id}")
     public ResponseEntity<ArtistDTO> deleteArtist(@PathVariable(value = "id") Integer id){
         ArtistDTO artistDTO = artistService.deleteArtist(id);
         return ResponseEntity.ok().body(artistDTO);
