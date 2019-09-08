@@ -48,11 +48,11 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AccountDTO findById(Integer id) {
+    public AccountDTO findById(Long id) {
         Account account = accountRepository.findById(id).orElse(null);
         if(account != null){
             AccountDTO accountDTO = new AccountDTO();
-            accountDTO.setId(account.getId());
+//            accountDTO.setId(account.getId());
             accountDTO.setAddress(account.getAddress());
             accountDTO.setAge(account.getAge());
             accountDTO.setEmail(account.getEmail());
@@ -70,7 +70,7 @@ public class AccountServiceImpl implements AccountService {
     public void updateUser(AccountDTO accountDTO) {
         Account account = accountRepository.findById(accountDTO.getId()).orElse(null);
 
-        account.setId(accountDTO.getId());
+//        account.setId(accountDTO.getId());
         account.setAddress(accountDTO.getAddress());
         account.setAge(accountDTO.getAge());
         account.setEmail(accountDTO.getEmail());
