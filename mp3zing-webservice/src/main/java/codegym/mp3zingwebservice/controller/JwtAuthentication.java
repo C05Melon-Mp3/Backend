@@ -1,7 +1,6 @@
 package codegym.mp3zingwebservice.controller;
 
 import codegym.mp3zingconfigure.jwt.JwtProvider;
-import codegym.mp3zingconfigure.service.UserPrinciple;
 import codegym.mp3zingdao.dto.request.JwtRequest;
 import codegym.mp3zingdao.dto.request.SignUpRequest;
 import codegym.mp3zingdao.dto.response.JwtResponse;
@@ -9,26 +8,20 @@ import codegym.mp3zingdao.dto.response.MessageErrorResponse;
 import codegym.mp3zingdao.entity.Account;
 import codegym.mp3zingdao.entity.Role;
 import codegym.mp3zingdao.entity.RoleName;
-import codegym.mp3zingdao.entity.User;
 import codegym.mp3zingdao.repository.AccountRepository;
 import codegym.mp3zingdao.repository.RoleRepository;
-import codegym.mp3zingdao.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.lang.reflect.Parameter;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,9 +32,9 @@ public class JwtAuthentication {
 
     @Autowired
     AuthenticationManager authenticationManager;
-
-    @Autowired
-    UserRepository userRepository;
+//
+//    @Autowired
+//    UserRepository userRepository;
     @Autowired
     AccountRepository accountRepository;
 
@@ -98,30 +91,34 @@ public class JwtAuthentication {
 
         //sign-up by facebook or google when it provider string
         //check email
-        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-            System.out.println("Kiem Tra email");
-            if (!signUpRequest.getProviderLogin().isEmpty()) {
-                System.out.println("kiem tra provider");
-                signUpRequest.setPassword("123456");
-                Authentication authentication = authenticationManager.authenticate(
-                        new UsernamePasswordAuthenticationToken(signUpRequest.getUsername(), signUpRequest.getPassword()));
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-                String jwt = jwtProvider.generateJwtToken(authentication);
-                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-                System.out.println("SO OKE");
-                return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
-            } else {
-                System.out.println("da ton tai email");
-                return new ResponseEntity<>(new MessageErrorResponse("Fail -> Email is already in use!"),
-                        HttpStatus.BAD_REQUEST);
-            }
-
-        }
+//        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+//            System.out.println("Kiem Tra email");
+//            if (!signUpRequest.getProviderLogin().isEmpty()) {
+//                System.out.println("kiem tra provider");
+//                signUpRequest.setPassword("123456");
+//                Authentication authentication = authenticationManager.authenticate(
+//                        new UsernamePasswordAuthenticationToken(signUpRequest.getUsername(), signUpRequest.getPassword()));
+//                SecurityContextHolder.getContext().setAuthentication(authentication);
+//                String jwt = jwtProvider.generateJwtToken(authentication);
+//                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+//                System.out.println("SO OKE");
+//                return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
+//            } else {
+//                System.out.println("da ton tai email");
+//                return new ResponseEntity<>(new MessageErrorResponse("Fail -> Email is already in use!"),
+//                        HttpStatus.BAD_REQUEST);
+//            }
+//
+//        }
         //check username
-        if (userRepository.existsByUserName(signUpRequest.getUsername())) {
-
+//        if (userRepository.existsByUserName(signUpRequest.getUsername())) {
+//
+//            return new ResponseEntity<>(new MessageErrorResponse("Fail -> Username is already taken!"),
+//                    HttpStatus.BAD_REQUEST);
+//        }
+        if(accountRepository.existsByUsername(signUpRequest.getUsername())){
             return new ResponseEntity<>(new MessageErrorResponse("Fail -> Username is already taken!"),
-                    HttpStatus.BAD_REQUEST);
+            HttpStatus.BAD_REQUEST);
         }
 
         // Creating user's account

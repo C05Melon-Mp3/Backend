@@ -14,5 +14,9 @@ public interface AccountRepository extends CrudRepository<Account,Long> {
     Long countByUsernameOrEmail(String username, String email);
     Account findByUsernameAndDeletedIsFalse(String s);
     Account findByUsername(String username);
+    Boolean existsByUsername(String username);
+
+    Boolean existsByEmail(String email);
+
 
 }

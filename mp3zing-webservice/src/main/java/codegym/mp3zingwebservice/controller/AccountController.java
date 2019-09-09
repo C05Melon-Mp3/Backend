@@ -5,10 +5,7 @@ import codegym.mp3zingconfigure.service.UserPrinciple;
 import codegym.mp3zingdao.dto.AccountDTO;
 import codegym.mp3zingdao.entity.Account;
 import codegym.mp3zingdao.entity.UpdatePassword;
-import codegym.mp3zingdao.entity.User;
-import codegym.mp3zingdao.repository.UserRepository;
 import codegym.mp3zingservice.service.AccountService;
-import codegym.mp3zingservice.service.impl.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +24,8 @@ import java.util.List;
 public class AccountController {
     @Autowired
     private AccountService accountService;
-    @Autowired
-    private UserRepository userRepository;
+//    @Autowired
+//    private UserRepository userRepository;
 
     @PostMapping("/register")
     public ResponseEntity<?> createAccounts(@Valid @RequestBody AccountDTO accountDTO, BindingResult bindingResult) {

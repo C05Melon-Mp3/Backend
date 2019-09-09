@@ -1,9 +1,7 @@
 package codegym.mp3zingconfigure.service;
 
 import codegym.mp3zingdao.entity.Account;
-import codegym.mp3zingdao.entity.User;
 import codegym.mp3zingdao.repository.AccountRepository;
-import codegym.mp3zingdao.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service(" UserDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
-    UserRepository userRepository;
+//    @Autowired
+//    UserRepository userRepository;
 
     @Autowired
     AccountRepository accountRepository;

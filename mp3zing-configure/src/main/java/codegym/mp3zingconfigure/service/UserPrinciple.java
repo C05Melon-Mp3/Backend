@@ -1,7 +1,6 @@
 package codegym.mp3zingconfigure.service;
 
 import codegym.mp3zingdao.entity.Account;
-import codegym.mp3zingdao.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
