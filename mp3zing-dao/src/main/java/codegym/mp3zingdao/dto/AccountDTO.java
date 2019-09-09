@@ -5,7 +5,7 @@ import codegym.mp3zingcommon.validation.Unique;
 import java.io.Serializable;
 
 public class AccountDTO implements Serializable {
-    private Integer id;
+    private Long id;
     private String fullName;
     private Integer age;
     private String gender;
@@ -18,11 +18,11 @@ public class AccountDTO implements Serializable {
     private String password;
     private Boolean deleted;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+//    public Integer getId() {
+//        return id;
+//    }
+   public Long getId() { return id;}
+    public void setId(Long id){
         this.id = id;
     }
 
