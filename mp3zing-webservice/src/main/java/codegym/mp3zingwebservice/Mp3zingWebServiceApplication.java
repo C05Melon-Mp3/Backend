@@ -8,13 +8,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-@Configuration
+//@Configuration
 @SpringBootApplication
 @EnableJpaAuditing()
 @EnableJpaRepositories(basePackages= "codegym.mp3zingdao.repository")
-//@ComponentScan("codegym")
-@EntityScan("codegym.mp3zingdao.entity")
-@ComponentScan(basePackages = {"codegym.mp3zingservice.service", "codegym.mp3zingservice.service.impl", "codegym.mp3zingdao.entity", "codegym.mp3zingwebservice.controller", "codegym.mp3zingconfigure.service"}, basePackageClasses = WebSecurityConfig.class)
+@ComponentScan("codegym")
+//
+//@ComponentScan(basePackages = {"codegym.mp3zingservice.service", "codegym.mp3zingservice.service.impl", "codegym.mp3zingdao.entity", "codegym.mp3zingwebservice.controller", "codegym.mp3zingconfigure.service"}, basePackageClasses = WebSecurityConfig.class)
 public class Mp3zingWebServiceApplication {
 
     public static void main(String[] args) {
